@@ -1,0 +1,10 @@
+<div>
+
+    <label for-next>Is Done {{item.isDone}}</label>
+    <input type="checkbox"
+           [checked]="item.isDone"
+           (change)="item.isDone=$event.target.checked">
+
+
+    <input [value]="item.name" (keyup)="doneEditing($event)">{{item.name}}
+</div>

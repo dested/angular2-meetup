@@ -1,0 +1,24 @@
+
+asdfasdf
+<h1>Hello ds {{ name }}
+    <input [value]="name" (keyup)="name=$event.target.value">
+    {{names|length}}
+</h1>
+
+
+<h1>
+    Welcome to the todo list
+</h1>
+
+<div *ng-for="#todoItem of todoItems">
+    <todo-item [item]="todoItem"></todo-item>
+</div>
+
+<br>
+<template ng-for #item [ng-for-of]="todoItems">
+    <todo-item [item]="item"></todo-item>
+</template>
+
+
+<button (click)="addNewItem()">Add New</button>
+Number of items:{{todoItems|length}}
