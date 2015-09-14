@@ -1,24 +1,62 @@
+<div class="container">
+    <div class="page-header">
+        <h1>Hello {{ name }}</h1>
+    </div>
+    
+    <p>Updating models with <code>[property]</code> and <code>(event)</code> binding</p>
 
-asdfasdf
-<h1>Hello ds {{ name }}
-    <input [value]="name" (keyup)="name=$event.target.value">
-    {{names|length}}
-</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="well">
+                <p><em>Using <code>$event</code></em></p>
+                <div class="form-group">
+                    <input [value]="name" #c (keyup)="name=$event.target.value" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="well">
+                <p><em>Using local variables</em></p>
+                <div class="form-group">
+                    <input [value]="name" #m (keyup)="name=m.value" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-<h1>
-    Welcome to the todo list
-</h1>
-
-<div *ng-for="#todoItem of todoItems">
-    <todo-item [item]="todoItem"></todo-item>
+    <div class="row">
+        <h1>
+            Welcome to the ToDo List!
+        </h1>
+        <div class="col-sm-6">
+            <p><em>With * Syntax</em></p>
+            <div *ng-for="#todoItem of todoItems">
+                <todo-item [item]="todoItem"></todo-item>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <p><em>Without * Syntax - same result, but more typing :(</em></p>
+            <template ng-for #item [ng-for-of]="todoItems">
+                <todo-item [item]="item"></todo-item>
+            </template>
+        </div>
+    </div>
+    
+    <div class="row" style="margin-top:60px;">
+        <p class="text-center">
+            <button (click)="addNewItem()" class="btn btn-success">Add New</button>
+        </p>
+        <p class="text-center">
+            Number of items:{{todoItems|length}}
+        </p>
+    </div>
 </div>
 
-<br>
-<template ng-for #item [ng-for-of]="todoItems">
-    <todo-item [item]="item"></todo-item>
-</template>
 
 
-<button (click)="addNewItem()">Add New</button>
-Number of items:{{todoItems|length}}
+
+
+
+
+
+

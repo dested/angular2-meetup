@@ -19,6 +19,7 @@ export class TodoItem {
 export class TodoItemComponent {
     item:TodoItem;
     doneEditing($event:any) {
+        console.log('done editing triggered: ', $event);
         var which = $event.which;
         var target = $event.target;
         if (which === 13) {

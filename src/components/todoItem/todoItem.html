@@ -1,10 +1,17 @@
-<div>
-
-    <label for-next>Is Done {{item.isDone}}</label>
-    <input type="checkbox"
-           [checked]="item.isDone"
-           (change)="item.isDone=$event.target.checked">
-
-
-    <input [value]="item.name" (keyup)="doneEditing($event)">{{item.name}}
+<div class="row">
+    <div class="col-xs-6">
+        <div class="form-group">
+            <input [value]="item.name" (keyup)="doneEditing($event)" class="form-control">
+        </div>
+        <p><em>press enter to save</em> <strong>{{item.name}}</strong></p>
+    </div>
+    <div class="col-xs-6">           
+        <div class="checkbox" for-next>
+            <label>
+                <input type="checkbox"
+                    [checked]="item.isDone"
+                    (change)="item.isDone=$event.target.checked"> Is Done: {{item.isDone}}
+            </label>
+        </div>
+    </div>
 </div>

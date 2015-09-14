@@ -31,6 +31,7 @@ System.register(['angular2/angular2', '../../directives/forNext'], function(expo
                 function TodoItemComponent() {
                 }
                 TodoItemComponent.prototype.doneEditing = function ($event) {
+                    console.log('done editing triggered: ', $event);
                     var which = $event.which;
                     var target = $event.target;
                     if (which === 13) {
