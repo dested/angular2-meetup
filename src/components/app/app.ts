@@ -1,5 +1,5 @@
 ///<reference path="../../typings/angular2/angular2.d.ts"/>
-import {Component,Directive,NgFor,Pipe, View, bootstrap} from 'angular2/angular2';
+import {Component,Directive,NgFor,Pipe,View,bootstrap} from 'angular2/angular2';
 import {TodoItemComponent,TodoItem} from '../todoItem/todoItem';
 import {LengthPipe} from 'src/pipes/lengthPipe';
 
@@ -19,17 +19,20 @@ export class AppComponent {
     todoItems:TodoItem[];
 
     constructor() {
-        this.name = 'some name';
+        this.name = 'John Doe';
         this.names = ['a', 'b', 'c'];
         this.todoItems = [
             {
-                name: 'hi1',
+                name: 'hello',
                 isDone: true
             }, {
-                name: 'hi2',
+                name: 'world',
                 isDone: false
             }, {
-                name: 'hi3',
+                name: 'foo',
+                isDone: false
+            }, {
+                name: 'bar',
                 isDone: false
             }
         ]

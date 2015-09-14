@@ -7,6 +7,9 @@ System.register(['angular2/angular2'], function(exports_1) {
             case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
         }
     };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
     var angular2_1;
     var ForNextDirective;
     return {
@@ -21,7 +24,8 @@ System.register(['angular2/angular2'], function(exports_1) {
                 ForNextDirective = __decorate([
                     angular2_1.Directive({
                         selector: '[for-next]',
-                    })
+                    }), 
+                    __metadata('design:paramtypes', [])
                 ], ForNextDirective);
                 return ForNextDirective;
             })();
