@@ -5,6 +5,10 @@ import {RatingComponent,RatingEntry} from '../rating/rating';
 import {LengthPipe} from 'src/pipes/lengthPipe';
 import {ForNextDirective} from '../../directives/forNext';
 
+import {BigDataService} from "../../services/bigDataService";
+import {SmallDataService} from "../../services/smallDataService";
+
+
 // Annotation section
 @Component({
     selector: 'app',
@@ -12,7 +16,7 @@ import {ForNextDirective} from '../../directives/forNext';
 @View({
     templateUrl: 'src/components/app/app.html',
     pipes: [LengthPipe],
-    directives: [NgFor, TodoItemComponent, RatingComponent,ForNextDirective]
+    directives: [NgFor, TodoItemComponent, RatingComponent, ForNextDirective]
 })
 // Component controller
 export class AppComponent {
@@ -20,10 +24,12 @@ export class AppComponent {
     names:string[];
     ratingEntry:RatingEntry;
     todoItems:TodoItem[];
+    someData:number[];
 
-    constructor() {
-        this.ratingEntry=new RatingEntry();
-        this.ratingEntry.ratingNumber=2;
+    constructor(smallDataService:SmallDataService) {
+        this.ratingEntry = new RatingEntry();
+        this.ratingEntry.ratingNumber = 2;
+        this.someData = smallDataService.getSmallData();
 
 
         this.name = 'John Doe';
@@ -39,7 +45,7 @@ export class AppComponent {
         ]
     }
 
-    ratingHappened(){
+    ratingHappened() {
         alert(this.ratingEntry.ratingNumber);
     }
 
@@ -53,4 +59,4 @@ export class AppComponent {
 }
 
 
-bootstrap(AppComponent);
+bootstrap(AppComponent, [BigDataService, SmallDataService]);

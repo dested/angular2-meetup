@@ -1,4 +1,4 @@
-System.register(['angular2/angular2', '../todoItem/todoItem', '../rating/rating', 'src/pipes/lengthPipe', '../../directives/forNext'], function(exports_1) {
+System.register(['angular2/angular2', '../todoItem/todoItem', '../rating/rating', 'src/pipes/lengthPipe', '../../directives/forNext', "../../services/bigDataService", "../../services/smallDataService"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
         switch (arguments.length) {
@@ -10,7 +10,7 @@ System.register(['angular2/angular2', '../todoItem/todoItem', '../rating/rating'
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var angular2_1, todoItem_1, rating_1, lengthPipe_1, forNext_1;
+    var angular2_1, todoItem_1, rating_1, lengthPipe_1, forNext_1, bigDataService_1, smallDataService_1;
     var AppComponent;
     return {
         setters:[
@@ -28,13 +28,20 @@ System.register(['angular2/angular2', '../todoItem/todoItem', '../rating/rating'
             },
             function (forNext_1_1) {
                 forNext_1 = forNext_1_1;
+            },
+            function (bigDataService_1_1) {
+                bigDataService_1 = bigDataService_1_1;
+            },
+            function (smallDataService_1_1) {
+                smallDataService_1 = smallDataService_1_1;
             }],
         execute: function() {
             // Annotation section
             AppComponent = (function () {
-                function AppComponent() {
+                function AppComponent(smallDataService) {
                     this.ratingEntry = new rating_1.RatingEntry();
                     this.ratingEntry.ratingNumber = 2;
+                    this.someData = smallDataService.getSmallData();
                     this.name = 'John Doe';
                     this.names = ['a', 'b', 'c'];
                     this.todoItems = [
@@ -65,12 +72,12 @@ System.register(['angular2/angular2', '../todoItem/todoItem', '../rating/rating'
                         pipes: [lengthPipe_1.LengthPipe],
                         directives: [angular2_1.NgFor, todoItem_1.TodoItemComponent, rating_1.RatingComponent, forNext_1.ForNextDirective]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [smallDataService_1.SmallDataService])
                 ], AppComponent);
                 return AppComponent;
             })();
             exports_1("AppComponent", AppComponent);
-            angular2_1.bootstrap(AppComponent);
+            angular2_1.bootstrap(AppComponent, [bigDataService_1.BigDataService, smallDataService_1.SmallDataService]);
         }
     }
 });

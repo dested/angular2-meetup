@@ -25,12 +25,12 @@ System.register(['angular2/angular2'], function(exports_1) {
             })();
             exports_1("RatingEntry", RatingEntry);
             RatingComponent = (function () {
+                //onRate=new EventEmitter();
                 function RatingComponent() {
-                    this.onRate = new angular2_1.EventEmitter();
                 }
                 RatingComponent.prototype.rateItem = function (count) {
                     this.entry.ratingNumber = count;
-                    this.onrate.next(count);
+                    //this.onrate.next(count);
                 };
                 RatingComponent = __decorate([
                     angular2_1.Component({
