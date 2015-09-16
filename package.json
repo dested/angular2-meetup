@@ -5,6 +5,7 @@
   "main": "src/app.js",
   "dependencies": {
     "angular2": "^2.0.0-alpha.37",
+    "bootstrap": "^3.3.5",
     "systemjs": "^0.16",
     "traceur": "0.0.91",
     "typescript": "^1.6.0-beta"

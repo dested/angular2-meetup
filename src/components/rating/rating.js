@@ -11,43 +11,41 @@ System.register(['angular2/angular2'], function(exports_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var angular2_1;
-    var TodoItem, TodoItemComponent;
+    var RatingEntry, RatingComponent;
     return {
         setters:[
             function (angular2_1_1) {
                 angular2_1 = angular2_1_1;
             }],
         execute: function() {
-            TodoItem = (function () {
-                function TodoItem() {
+            RatingEntry = (function () {
+                function RatingEntry() {
                 }
-                return TodoItem;
+                return RatingEntry;
             })();
-            exports_1("TodoItem", TodoItem);
-            TodoItemComponent = (function () {
-                function TodoItemComponent() {
+            exports_1("RatingEntry", RatingEntry);
+            RatingComponent = (function () {
+                function RatingComponent() {
+                    this.onRate = new angular2_1.EventEmitter();
                 }
-                TodoItemComponent.prototype.doneEditing = function ($event) {
-                    console.log('done editing triggered: ', $event);
-                    var which = $event.which;
-                    var target = $event.target;
-                    if (which === 13) {
-                        this.item.name = target.value;
-                    }
+                RatingComponent.prototype.rateItem = function (count) {
+                    this.entry.ratingNumber = count;
+                    this.onrate.next(count);
                 };
-                TodoItemComponent = __decorate([
+                RatingComponent = __decorate([
                     angular2_1.Component({
-                        selector: 'todo-item',
-                        properties: ['item']
+                        selector: 'rating',
+                        properties: ['entry'],
                     }),
                     angular2_1.View({
-                        templateUrl: 'src/components/todoItem/todoItem.html',
+                        templateUrl: 'src/components/rating/rating.html',
+                        directives: [angular2_1.NgFor, angular2_1.NgIf]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], TodoItemComponent);
-                return TodoItemComponent;
+                ], RatingComponent);
+                return RatingComponent;
             })();
-            exports_1("TodoItemComponent", TodoItemComponent);
+            exports_1("RatingComponent", RatingComponent);
         }
     }
 });

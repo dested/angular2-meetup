@@ -19,13 +19,16 @@ System.register(['angular2/angular2'], function(exports_1) {
             }],
         execute: function() {
             ForNextDirective = (function () {
-                function ForNextDirective() {
+                function ForNextDirective(el) {
+                    var id = "id" + (Math.random() * 10000000 | 0);
+                    el.nativeElement.setAttribute('for', id);
+                    el.nativeElement.nextElementSibling.setAttribute('id', id);
                 }
                 ForNextDirective = __decorate([
                     angular2_1.Directive({
                         selector: '[for-next]',
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [angular2_1.ElementRef])
                 ], ForNextDirective);
                 return ForNextDirective;
             })();

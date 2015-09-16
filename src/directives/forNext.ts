@@ -5,9 +5,9 @@ import {Directive,ElementRef} from 'angular2/angular2';
     selector: '[for-next]',
 })
 export class ForNextDirective {
-   /* constructor(el:ElementRef) {
+    constructor(el:ElementRef) {
         var id="id"+(Math.random()*10000000|0);
         el.nativeElement.setAttribute('for',id);
         el.nativeElement.nextElementSibling.setAttribute('id',id);
-    }*/
+    }
 }

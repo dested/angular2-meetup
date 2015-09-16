@@ -1,0 +1,6 @@
+<div>
+    <button class="btn btn-primary" *ng-for="#count of [1,2,3,4,5]" (click)="rateItem(count)">
+        <span *ng-if="count==entry.ratingNumber">({{count}})</span>
+        <span *ng-if="count!=entry.ratingNumber">{{count}}</span>
+    </button>
+</div>

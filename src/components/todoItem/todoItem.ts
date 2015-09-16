@@ -1,6 +1,5 @@
 ///<reference path="../../typings/angular2/angular2.d.ts"/>
 import {Component,View} from 'angular2/angular2';
-import {ForNextDirective} from '../../directives/forNext';
 
 
 export class TodoItem {
@@ -14,7 +13,6 @@ export class TodoItem {
 })
 @View({
     templateUrl: 'src/components/todoItem/todoItem.html',
-    directives:[ForNextDirective]
 })
 export class TodoItemComponent {
     item:TodoItem;
